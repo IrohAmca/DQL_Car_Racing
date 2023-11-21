@@ -1,0 +1,8 @@
+tensorflow
+keras
+numpy
+gymnasium (box2d(swig.exe))
+
+Not: If you have a problem when make envoriment may you should be install swig.exe to run box2d
+
+Pip:You can use pip install swig or pip install swig.exe to use box2d
