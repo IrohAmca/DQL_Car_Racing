@@ -43,6 +43,3 @@ Make your changes and commit them:
 git commit -m 'Add new feature'.
 ```
 Merge your branch with the main repository: git push origin new-branch.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
