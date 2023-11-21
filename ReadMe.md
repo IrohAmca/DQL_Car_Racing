@@ -42,4 +42,7 @@ Make your changes and commit them:
 ```bash
 git commit -m 'Add new feature'.
 ```
-Merge your branch with the main repository: git push origin new-branch.
+Merge your branch with the main repository:
+```bash
+git push origin new-branch.
+```
