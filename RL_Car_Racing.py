@@ -11,7 +11,7 @@ rewards = []
 
 reward=0
 if __name__ == "__main__":
-    agent = DQLAgent(env, gamma=0.95, learning_rate=0.0001, epsilon_decay=0.995, epsilon_min=0.01, maxlen=10000)
+    agent = DQLAgent(env, gamma=0.95, learning_rate=0.1, epsilon_decay=0.995, epsilon_min=0.01, maxlen=10000,loaded=True,path="C:/Users/aliay/RL_çalisma/F1_20_11_23.keras")
 
     batch_size = 65
     episodes = 50
@@ -32,11 +32,12 @@ if __name__ == "__main__":
                 action = np.array([action])
 
             # step
+            """
             action[1] = np.clip(action[1] + 0.3, -1.0, 1.0)
             action[2] = np.clip(action[2] - 0.3, -1.0, 1.0)
             
             if action[1]>0.6:
-                reward+=5
+                reward+=5"""
             next_state, reward, terminated, truncated, info = env.step(action)
             
             # RGB to Gray
@@ -44,11 +45,12 @@ if __name__ == "__main__":
             next_state = cv2.cvtColor(next_state, cv2.COLOR_BGR2GRAY)
             next_state=next_state/128
             
-            # Update state
-            state=next_state
             
             # Save memory
             agent.remember(state, action, reward, next_state, truncated, terminated)
+            
+            # Update state
+            state=next_state
             
             # Update the epsilon
             agent.adaptiveEGreedy()
@@ -71,4 +73,4 @@ if __name__ == "__main__":
 
     env.close()
     
-agent.model.save("F1_20_11_23.keras")
+agent.model.save("F1_22_11_23.keras")
